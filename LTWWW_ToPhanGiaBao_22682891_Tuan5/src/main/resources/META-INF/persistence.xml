@@ -15,7 +15,7 @@ https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
             <property name="jakarta.persistence.jdbc.password" value="25082004" />
             <!-- Automatically export the schema -->
             <property name="jakarta.persistence.schema-generation.database.action"
-                      value="update" />
+                      value="none" />
             <!-- Echo all executed SQL to console -->
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.format_sql" value="true" />

@@ -9,6 +9,9 @@
     <img src="../Images/header.png">
 </div>
 <br/>
-<a href="ncc-servlet">Hello Servlet</a>
+<a href="nha-cung-cap-servlet">Danh sách nhà cung cấp</a>
+<div>
+    Tô Phan Gia Bảo - 22682891 - DHKTPM18ATT
+</div>
 </body>
 </html>
