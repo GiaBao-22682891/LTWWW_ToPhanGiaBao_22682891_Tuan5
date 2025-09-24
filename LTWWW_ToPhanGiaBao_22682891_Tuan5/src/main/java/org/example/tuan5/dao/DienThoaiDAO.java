@@ -6,7 +6,7 @@ import org.example.tuan5.model.NhaCungCap;
 import java.util.List;
 
 public interface DienThoaiDAO {
-    public List<DienThoai> getListDienThoai() ;
+    public List<DienThoai> getListDienThoai(int maNhaCungCap) ;
 
     public void addDienThoai (DienThoai dienThoai) ;
 

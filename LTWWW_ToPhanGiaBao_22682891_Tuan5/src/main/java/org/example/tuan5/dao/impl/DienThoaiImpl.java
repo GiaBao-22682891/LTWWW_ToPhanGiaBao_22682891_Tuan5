@@ -2,26 +2,36 @@ package org.example.tuan5.dao.impl;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.TypedQuery;
+import org.example.tuan5.dao.DienThoaiDAO;
 import org.example.tuan5.dao.NhaCungCapDAO;
+import org.example.tuan5.model.DienThoai;
 import org.example.tuan5.model.NhaCungCap;
 import org.example.tuan5.utils.JPAUtils;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class NhaCungCapImpl implements NhaCungCapDAO {
+public class DienThoaiImpl implements DienThoaiDAO {
     public EntityManager em;
 
-    public NhaCungCapImpl(EntityManager entityManager) {
+    public DienThoaiImpl(EntityManager entityManager) {
         this.em = entityManager;
     }
 
-    @Override
-    public List<NhaCungCap> getListNhaCungCap() {
-        try (EntityManager entityManager = JPAUtils.getEntityManager()) {
-            return entityManager.createQuery("select ncc from NhaCungCap ncc", NhaCungCap.class)
-                    .getResultList();
 
+    @Override
+    public List<DienThoai> getListDienThoai(int maNhaCungCap) {
+        String sql =
+                """
+                SELECT dt from DienThoai dt
+                WHERE dt.nhaCungCap = :nhaCungCap
+                """;
+
+        try (EntityManager em = JPAUtils.getEntityManager()) {
+            TypedQuery<DienThoai> query = em.createQuery(sql, DienThoai.class);
+            query.setParameter("nhaCungCap", maNhaCungCap);
+
+            return query.getResultList();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -29,11 +39,11 @@ public class NhaCungCapImpl implements NhaCungCapDAO {
     }
 
     @Override
-    public void addNhaCungCap(NhaCungCap nhaCungCap) {
+    public void addDienThoai(DienThoai dienThoai) {
         EntityTransaction transaction = em.getTransaction();
         try {
             transaction.begin();
-            em.persist(nhaCungCap);
+            em.persist(dienThoai);
             transaction.commit();
         } catch (Exception e) {
             e.printStackTrace();
@@ -42,30 +52,29 @@ public class NhaCungCapImpl implements NhaCungCapDAO {
     }
 
     @Override
-    public void deleteNhaCungCap(NhaCungCap nhaCungCap) {
+    public void deleteDienThoai(DienThoai dienThoai) {
         EntityTransaction transaction = em.getTransaction();
         try {
             transaction.begin();
-            em.remove(nhaCungCap);
+            em.remove(dienThoai);
             transaction.commit();
         } catch (Exception e) {
             e.printStackTrace();
             transaction.rollback();
         }
-
     }
 
     @Override
-    public NhaCungCap updateNhaCungCap(NhaCungCap nhaCungCap) {
+    public DienThoai updateDienThoai(DienThoai dienThoai) {
         EntityTransaction transaction = em.getTransaction();
         try {
             transaction.begin();
-            em.merge(nhaCungCap);
+            em.merge(dienThoai);
             transaction.commit();
         } catch (Exception e) {
             e.printStackTrace();
             transaction.rollback();
         }
-        return nhaCungCap;
+        return dienThoai;
     }
 }
