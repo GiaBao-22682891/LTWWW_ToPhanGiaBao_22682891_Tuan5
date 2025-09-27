@@ -1,4 +1,4 @@
-package org.example.tuan5;
+package org.example.tuan5.utils;
 
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;

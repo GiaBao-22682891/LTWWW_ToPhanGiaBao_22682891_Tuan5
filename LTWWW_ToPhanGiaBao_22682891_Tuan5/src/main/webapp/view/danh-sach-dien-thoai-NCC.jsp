@@ -9,10 +9,13 @@
         th { background: #007BFF; color: white; }
         tr:nth-child(even) { background: #f9f9f9; }
         img { max-width: 80px; border-radius: 5px; }
+        .title {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
-<h2>Danh sách điện thoại</h2>
+<h2 class="title">Danh sách điện thoại</h2>
 <table>
     <thead>
     <tr>

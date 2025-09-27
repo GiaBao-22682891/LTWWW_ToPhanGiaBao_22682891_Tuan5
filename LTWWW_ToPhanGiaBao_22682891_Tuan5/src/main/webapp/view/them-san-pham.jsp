@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -64,7 +65,7 @@
 <body>
 <div class="form-container">
     <h2>Thêm điện thoại mới</h2>
-    <form action="${pageContext.request.contextPath}/dien-thoai-servlet" method="post">
+    <form action="${pageContext.request.contextPath}/them-san-pham-servlet" method="post">
         <label for="tenDT">Tên điện thoại</label>
         <input type="text" id="tenDT" name="tenDT" required>
 
@@ -77,15 +78,15 @@
         <label for="hinhAnh">Tên file hình ảnh</label>
         <input type="text" id="hinhAnh" name="hinhAnh" placeholder="vd: iphone15.png">
 
-<%--        <label for="nccId">Nhà cung cấp</label>--%>
-<%--        <select id="nccId" name="nccId">--%>
-<%--            <c:forEach var="ncc" items="${nccList}">--%>
-<%--                <option value="${ncc.maNCC}">${ncc.tenNCC}</option>--%>
-<%--            </c:forEach>--%>
-<%--        </select>--%>
+        <label for="nccId">Nhà cung cấp</label>
+        <select id="nccId" name="nccId">
+            <c:forEach var="ncc" items="${nccList}">
+                <option value="${ncc.maNCC}">${ncc.tenNCC}</option>
+            </c:forEach>
+        </select>
 
-        <label for="nccId">NCC</label>
-        <input type="number" id="nccId" name="nccId" required>
+<%--        <label for="nccId">NCC</label>--%>
+<%--        <input type="number" id="nccId" name="nccId" required>--%>
 
         <button type="submit" name="action" value="create">Thêm mới</button>
     </form>

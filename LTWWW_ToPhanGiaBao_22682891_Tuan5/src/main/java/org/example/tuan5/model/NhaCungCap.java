@@ -12,6 +12,7 @@ import java.util.List;
 @Data
 @Builder
 @EqualsAndHashCode (onlyExplicitlyIncluded = true)
+@ToString(exclude = "dienThoais")
 public class NhaCungCap {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)

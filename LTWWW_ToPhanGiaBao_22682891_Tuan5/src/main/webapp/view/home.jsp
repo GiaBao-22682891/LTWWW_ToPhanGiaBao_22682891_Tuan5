@@ -14,6 +14,12 @@
             height: 300px;
 
         }
+
+        .header img {
+            width: 100%;
+            height: fit-content;
+        }
+
         .navbar {
             display: flex;
             justify-content: center;
@@ -43,14 +49,15 @@
 <div class="container">
     <div class="header">
         <img src="../Images/header.png">
+        <div class="navbar">
+            <a href="${pageContext.request.contextPath}/nha-cung-cap-servlet">Danh sách nhà cung cấp</a>
+            |
+            <a href="${pageContext.request.contextPath}/them-san-pham-servlet">Thêm mới sản phẩm</a>
+            |
+            <a href="">Chức năng quản lý</a>
+        </div>
     </div>
-    <div class="navbar">
-        <a href="${pageContext.request.contextPath}/nha-cung-cap-servlet">Danh sách nhà cung cấp</a>
-        |
-        <a href="them_san_pham.jsp">Thêm mới sản phẩm</a>
-        |
-        <a href="">Chức năng quản lý</a>
-    </div>
+
     <div class="content">
 
     </div>

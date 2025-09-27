@@ -10,6 +10,8 @@ import lombok.*;
 @Data
 @Builder
 @EqualsAndHashCode (onlyExplicitlyIncluded = true)
+//@ToString (onlyExplicitlyIncluded = true)  cái này dùng cũng được nhưng phải viết thêm trường nào cần include/exclude
+@ToString (exclude = "nhaCungCap")
 public class DienThoai {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -16,6 +16,7 @@
             justify-content: center;
             align-items: center;
             margin-bottom: 20px;
+            font-family: "Times New Roman";
             color: #333;
         }
 
@@ -64,6 +65,7 @@
         <th>Tên NCC</th>
         <th>Địa chỉ</th>
         <th>Số điện thoại</th>
+        <th>Danh sách sản phẩm</th>
     </tr>
     </thead>
     <tbody>

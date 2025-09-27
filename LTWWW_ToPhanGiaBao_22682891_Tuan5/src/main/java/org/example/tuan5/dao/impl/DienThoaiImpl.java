@@ -22,7 +22,6 @@ public class DienThoaiImpl implements DienThoaiDAO {
     @Override
     public List<DienThoai> getListDienThoai(int maNhaCungCap) {
         String sql =
-                //Bảng đang lưu dạng NhaCungCap, ko lưu được int
                 "SELECT dt from DienThoai dt "
                + "WHERE dt.nhaCungCap.id = :nhaCungCap";
 
