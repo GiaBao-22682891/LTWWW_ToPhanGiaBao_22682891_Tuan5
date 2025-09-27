@@ -27,7 +27,7 @@
     <c:forEach var="dt" items="${dienThoaiList}">
         <tr>
             <td>${dt.maDT}</td>
-            <td value = "tendt">${dt.tenDT}</td>
+            <td>${dt.tenDT}</td>
             <td>${dt.cauHinh}</td>
             <td>${dt.namSX}</td>
             <td>
@@ -40,6 +40,6 @@
     </tbody>
 </table>
 <br>
-<a href="nha-cung-cap-list.jsp">← Quay lại danh sách nhà cung cấp</a>
+<a href="nha-cung-cap-servlet">← Quay lại danh sách nhà cung cấp</a>
 </body>
 </html>

@@ -4,7 +4,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import org.example.tuan5.dao.NhaCungCapDAO;
 import org.example.tuan5.model.NhaCungCap;
-import org.example.tuan5.utils.JPAUtils;
+//import org.example.tuan5.utils.JPAUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,13 +18,16 @@ public class NhaCungCapImpl implements NhaCungCapDAO {
 
     @Override
     public List<NhaCungCap> getListNhaCungCap() {
-        try (EntityManager entityManager = JPAUtils.getEntityManager()) {
-            return entityManager.createQuery("select ncc from NhaCungCap ncc", NhaCungCap.class)
+        try  {
+            return em.createQuery("select ncc from NhaCungCap ncc", NhaCungCap.class)
                     .getResultList();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+//        finally {
+//            em.close();
+//        }
         return null;
     }
 
@@ -67,5 +70,15 @@ public class NhaCungCapImpl implements NhaCungCapDAO {
             transaction.rollback();
         }
         return nhaCungCap;
+    }
+
+    @Override
+    public NhaCungCap getNhaCungCap(int id) {
+        try {
+            return em.find(NhaCungCap.class, id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

@@ -13,4 +13,6 @@ public interface NhaCungCapDAO {
 
     public NhaCungCap updateNhaCungCap(NhaCungCap nhaCungCap) ;
 
+    public NhaCungCap getNhaCungCap(int id) ;
+
 }

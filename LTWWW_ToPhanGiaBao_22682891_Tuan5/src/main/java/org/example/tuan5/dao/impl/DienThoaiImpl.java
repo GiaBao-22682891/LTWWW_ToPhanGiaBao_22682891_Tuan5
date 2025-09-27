@@ -7,7 +7,7 @@ import org.example.tuan5.dao.DienThoaiDAO;
 import org.example.tuan5.dao.NhaCungCapDAO;
 import org.example.tuan5.model.DienThoai;
 import org.example.tuan5.model.NhaCungCap;
-import org.example.tuan5.utils.JPAUtils;
+//import org.example.tuan5.utils.JPAUtils;
 
 import java.util.List;
 
@@ -22,12 +22,11 @@ public class DienThoaiImpl implements DienThoaiDAO {
     @Override
     public List<DienThoai> getListDienThoai(int maNhaCungCap) {
         String sql =
-                """
-                SELECT dt from DienThoai dt
-                WHERE dt.nhaCungCap = :nhaCungCap
-                """;
+                //Bảng đang lưu dạng NhaCungCap, ko lưu được int
+                "SELECT dt from DienThoai dt "
+               + "WHERE dt.nhaCungCap.id = :nhaCungCap";
 
-        try (EntityManager em = JPAUtils.getEntityManager()) {
+        try {
             TypedQuery<DienThoai> query = em.createQuery(sql, DienThoai.class);
             query.setParameter("nhaCungCap", maNhaCungCap);
 

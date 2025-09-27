@@ -47,7 +47,7 @@
     <div class="navbar">
         <a href="${pageContext.request.contextPath}/nha-cung-cap-servlet">Danh sách nhà cung cấp</a>
         |
-        <a href="">Thêm mới sản phẩm</a>
+        <a href="them_san_pham.jsp">Thêm mới sản phẩm</a>
         |
         <a href="">Chức năng quản lý</a>
     </div>
